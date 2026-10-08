@@ -1,6 +1,6 @@
 """FEBio MCP Server —— AI 全流程驱动 FEBio 有限元仿真。
 
-覆盖链路：离线知识检索 -> 参数化建模 -> 网格生成 -> 求解 -> 后处理 -> GUI 控制。
+覆盖链路：离线知识检索 -> 参数化建模 -> 网格生成 -> 求解 -> 后处理（曲线 / 伪彩 / 三维离屏渲染）-> GUI 控制。
 
 运行（stdio，供 MCP 客户端连接）：
     python -m src.server
@@ -31,7 +31,8 @@ server = MCPServer(
         "1) 用 febio_search_docs / febio_material_info 查清材料与边界条件的正确写法；\n"
         "2) 用 febio_build_model 生成 .feb（几何用 box/cylinder/sphere/disc）；\n"
         "3) 用 febio_run 或 febio_submit 求解；\n"
-        "4) 用 febio_results_summary / febio_extract_history / febio_plot_* 看结果。\n"
+        "4) 用 febio_results_summary / febio_extract_history / febio_plot_* 看结果，\n"
+        "   要三维实体云图（真实单元面、单元场、多视角）用 febio_render_field（离屏，无需 GUI）。\n"
         "所有路径默认落在工作区内；长算例请用 febio_submit 异步提交。"
     ),
 )
@@ -544,6 +545,80 @@ def febio_plot_field(
         p = plot_field(r.nodes(), vals, out_path, title=title or variable,
                        cbar_label=variable, component=component if component >= 0 else None)
         return {"ok": True, "path": str(p)}
+    except Exception as exc:
+        return _err(exc)
+
+
+@server.tool(name="febio_render_field")
+def febio_render_field(
+    xplt_path: str,
+    variable: str,
+    out_path: str = "",
+    kind: str = "node_data",
+    part: str = "",
+    state: int = -1,
+    component: int = -1,
+    cmap: str = "turbo",
+    view: str = "iso",
+    show_edges: bool = False,
+    opacity: float = 1.0,
+    clim: list[float] | None = None,
+    width: int = 1280,
+    height: int = 960,
+    background: str = "white",
+    scalar_bar_title: str = "",
+    show_axes: bool = True,
+) -> dict:
+    """离屏三维渲染：把结果场画成带真实单元面、光照与色标的 PNG（不需要 GUI）。
+
+    与 febio_plot_field 的区别：那个只把节点撒成散点伪彩图；本工具按真实单元拓扑
+    建面、支持单元场（如 stress / heat flux）、多视角与色标范围控制。
+    渲染引擎与 FEBioStudio 同为 VTK，只是走离屏模式，可用于批处理与无桌面环境。
+
+    xplt_path  : .xplt 或已转好的 .hdf5
+    variable   : 变量名，如 "temperature"、"displacement"、"stress"
+    kind       : "node_data" 或 "element_data"
+    part       : 只渲染某个 part；留空表示全部
+    state      : 时间点下标，-1 为最后一步
+    component  : 多分量场取哪一分量（0/1/2...）；-1 表示取模
+    view       : 相机所在侧面——iso(等轴测) / front(+y) / back(-y) /
+                 right(+x) / left(-x) / top(+z 俯视) / bottom(-z 仰视)
+    clim       : 色标范围 [min, max]；留空自动
+    """
+    try:
+        import importlib.util
+
+        if importlib.util.find_spec("pyvista") is None:
+            return _err(
+                ImportError("未安装 pyvista"),
+                hint="三维渲染需要 pyvista：pip install 'pyvista>=0.49'（会自动带上 vtk）。",
+            )
+        from post.render3d import render_field
+    except ImportError as exc:
+        return _err(exc)
+
+    try:
+        if not out_path:
+            out_path = str(cfg.WORKSPACE / "figures" / f"{variable}_3d.png")
+        p = render_field(
+            xplt_path,
+            out_path,
+            variable,
+            kind=kind,
+            part=part or None,
+            state=state,
+            component=component if component >= 0 else None,
+            cmap=cmap,
+            view=view,
+            show_edges=show_edges,
+            opacity=opacity,
+            clim=(float(clim[0]), float(clim[1])) if clim else None,
+            window_size=(int(width), int(height)),
+            background=background,
+            scalar_bar_title=scalar_bar_title,
+            show_axes=show_axes,
+        )
+        return {"ok": True, "path": str(p), "variable": variable, "kind": kind, "view": view}
     except Exception as exc:
         return _err(exc)
 

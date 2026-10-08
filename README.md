@@ -8,7 +8,7 @@
 
 ---
 
-## 一、能力一览（29 个工具）
+## 一、能力一览（30 个工具）
 
 | 分类 | 工具 | 说明 |
 |---|---|---|
@@ -27,7 +27,8 @@
 | **后处理** | `febio_results_summary` | 结果概览：状态、时间点、可用变量 |
 | | `febio_get_field` | 场数据统计（按分量/节点集） |
 | | `febio_extract_history` | 提取时间历史曲线（如顶面位移-时间） |
-| | `febio_plot_curves` / `febio_plot_field` | 出曲线图 / 3D 伪彩图 |
+| | `febio_plot_curves` / `febio_plot_field` | 出曲线图 / 3D 伪彩图（散点着色） |
+| | `febio_render_field` | **离屏三维渲染**：按真实单元拓扑出实体云图，支持单元场、多视角、色标范围（无需 GUI） |
 | **GUI（Windows）** | `febio_studio_status` / `launch` / `screenshot` / `menu` / `run` / `close` | 控制 FEBioStudio 界面 |
 
 ---
@@ -148,7 +149,7 @@ febio_extract_history(xplt_path, "displacement", component=2, node_set="zmax")
 ```
 febio-mcp-server/
 ├── src/
-│   ├── server.py          MCP 入口，29 个工具
+│   ├── server.py          MCP 入口，30 个工具
 │   ├── config.py          跨平台路径探测（可被环境变量覆盖）
 │   ├── kb/                离线知识库（PDF 手册 + SDK 头文件）
 │   ├── modeling/          建模（pyfebio 封装 + spec 驱动）
@@ -181,6 +182,11 @@ febio-mcp-server/
 **Q：GUI 控制不可用？**
 该功能仅 Windows，且需 `pip install pywinauto` 与已安装 FEBioStudio。日常建模求解不需要它。
 
+**Q：想要三维云图但不想开 FEBioStudio？**
+用 `febio_render_field`。它走 VTK 的**离屏**模式，无需 GUI 会话，可在服务器/批处理里跑；
+需要 `pip install 'pyvista>=0.49'`。FEBio 本体（`febio4.exe`）不含任何渲染器，可视化能力在
+FEBioStudio 里，本工具用的是与之相同的 VTK 引擎。
+
 **Q：算例跑很久？**
 用 `febio_submit` 异步提交，再用 `febio_job_status` 轮询。
 
@@ -193,6 +199,7 @@ febio-mcp-server/
 | 生成 `.feb` | [`febiosoftware/pyfebio`](https://github.com/febiosoftware/pyfebio)（官方） |
 | 解析 `.xplt` | 同上（`pyfebio.xplt.to_hdf5`） |
 | 网格 | [`gmsh`](https://gmsh.info/) Python API |
+| 三维渲染 | [`pyvista`](https://pyvista.org/) + [VTK](https://vtk.org/)（**离屏**模式；与 FEBioStudio 同一渲染引擎） |
 | 知识库 | FEBio 官方 PDF 手册 + C++ SDK 头文件（本地） |
 | MCP 协议 | [`modelcontextprotocol/python-sdk`](https://github.com/modelcontextprotocol/python-sdk) |
 
