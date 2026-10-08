@@ -147,7 +147,15 @@ def _finish(mesh: MeshData, tol: float | None, add_faces: bool) -> MeshData:
 def _new_gmsh(verbose: bool = False):
     import gmsh
 
-    gmsh.initialize()
+    # 注意：gmsh.initialize() 默认会调用 signal.signal(SIGINT, SIG_DFL)，
+    # 而 MCP 框架（mcp>=2.x）把同步工具函数放在 worker 线程里执行，
+    # 非主线程调用 signal.signal 会抛 "ValueError: signal only works in
+    # main thread of the main interpreter"，导致网格/建模工具全挂。
+    # 用 interruptible=False 跳过信号处理即可（headless 场景不需要 Ctrl-C 中断）。
+    try:
+        gmsh.initialize(interruptible=False)
+    except TypeError:  # 老版本 gmsh 没有该参数
+        gmsh.initialize()
     gmsh.option.setNumber("General.Terminal", 1 if verbose else 0)
     gmsh.option.setNumber("General.Verbosity", 2 if verbose else 0)
     gmsh.model.add("febio_model")
