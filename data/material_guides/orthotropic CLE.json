@@ -1,0 +1,95 @@
+{
+  "type": "orthotropic CLE",
+  "kind": "standalone",
+  "display_name": "Orthotropic CLE",
+  "summary": "**warning:** the manual's parameter table header for the third tensile coefficient is printed as `lp11` again (duplicate); the example uses `lp33`. Correct tag is `lp33`. ⚠️ UNVERIFIED (manual typo). Bimodular, Curnier et al.; infinitesimal-strain formulation. Example type string is printed as `\" orthotropic CLE\"` (leading space) — use `orthotropic CLE`.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.17 Orthotropic CLE, p221（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained, orthotropic)",
+  "params": {
+    "lp11": {
+      "meaning": "Tensile diagonal first Lamé coefficient along direction 1 λ+11",
+      "unit": "[P]",
+      "required": false
+    },
+    "lp22": {
+      "meaning": "Tensile diagonal first Lamé coefficient along direction 2 λ+22",
+      "unit": "[P]",
+      "required": false
+    },
+    "lp33": {
+      "meaning": "Tensile diagonal first Lamé coefficient along direction 3 λ+33",
+      "unit": "[P]",
+      "required": false
+    },
+    "lm11": {
+      "meaning": "Compressive diagonal first Lamé coefficient along direction 1 λ−11",
+      "unit": "[P]",
+      "required": false
+    },
+    "lm22": {
+      "meaning": "Compressive diagonal first Lamé coefficient along direction 2 λ−22",
+      "unit": "[P]",
+      "required": false
+    },
+    "lm33": {
+      "meaning": "Compressive diagonal first Lamé coefficient along direction 3 λ−33",
+      "unit": "[P]",
+      "required": false
+    },
+    "l12": {
+      "meaning": "Off-diagonal first Lamé coefficient in 1-2 plane λ12",
+      "unit": "[P]",
+      "required": false
+    },
+    "l23": {
+      "meaning": "Off-diagonal first Lamé coefficient in 2-3 plane λ23",
+      "unit": "[P]",
+      "required": false
+    },
+    "l31": {
+      "meaning": "Off-diagonal first Lamé coefficient in 3-1 plane λ31",
+      "unit": "[P]",
+      "required": false
+    },
+    "mu1": {
+      "meaning": "Second Lamé coefficient along direction 1 µ1",
+      "unit": "[P]",
+      "required": false
+    },
+    "mu2": {
+      "meaning": "Second Lamé coefficient along direction 2 µ2",
+      "unit": "[P]",
+      "required": false
+    },
+    "mu3": {
+      "meaning": "Second Lamé coefficient along direction 3 µ3",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "orthotropic CLE",
+      "density": 1e-06,
+      "lp11": 13.01,
+      "lp22": 13.01,
+      "lp33": 13.01,
+      "lm11": 0.49,
+      "lm22": 0.49,
+      "lm33": 0.49,
+      "l12": 0.66,
+      "l23": 0.66,
+      "l31": 0.66,
+      "mu1": 0.16,
+      "mu2": 0.16,
+      "mu3": 0.16,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

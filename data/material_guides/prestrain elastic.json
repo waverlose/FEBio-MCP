@@ -1,0 +1,27 @@
+{
+  "type": "prestrain elastic",
+  "kind": "standalone",
+  "display_name": "Prestrain Elastic",
+  "summary": "wrapper around the underlying elastic constitutive model. Manual states there are **two flavors, one for coupled and one for uncoupled** materials, but only gives the type string `prestrain elastic` in its examples. The uncoupled flavor's exact type string is **not stated**. ⚠️ UNVERIFIED (candidate: `prestrain uncoupled elastic`). Prestrain data can be defined at material or element level. See §3.15.6 for update rules.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.21.2 The Prestrain Material, p403（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "prestrain",
+  "params": {
+    "elastic": {
+      "meaning": "elastic constitutive model (any material; validated only for hyperelastic)",
+      "required": false
+    },
+    "prestrain": {
+      "meaning": "prestrain generator (`prestrain gradient` or `in-situ stretch`)",
+      "required": false
+    }
+  },
+  "example": {
+    "buildable": false,
+    "reason": "读取默认值失败：ValidationError: 1 validation error for PrestrainElastic\nprestrain\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+    "source": "pyfebio 默认值不足以构造出该材料，需人工补全必要参数后给出示例。",
+    "verified": false
+  }
+}

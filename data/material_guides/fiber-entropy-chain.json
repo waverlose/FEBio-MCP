@@ -1,0 +1,47 @@
+{
+  "type": "fiber-entropy-chain",
+  "kind": "nested",
+  "display_name": "Fiber as Entropy Chain",
+  "summary": "freely-jointed-chain / statistical mechanics model. (Example in the manual does not include `<mu>`.)",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.2.1.7 Fiber as Entropy Chain, p252（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber (unconstrained)",
+  "params": {
+    "ksi": {
+      "meaning": "Initial modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "N": {
+      "meaning": "Square of locking stretch",
+      "unit": "[ ]",
+      "required": false
+    },
+    "n_term": {
+      "meaning": "Number of Taylor series terms",
+      "range": "3 ≤ nterm ≤ 30",
+      "required": false
+    },
+    "mu": {
+      "meaning": "Shear modulus for fiber-matrix interaction",
+      "unit": "[P]",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "fiber-entropy-chain",
+      "ksi": 1,
+      "N": 2,
+      "n_term": 3
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  },
+  "params_not_in_pyfebio": [
+    "mu"
+  ]
+}

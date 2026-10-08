@@ -1,0 +1,66 @@
+{
+  "type": "perm-ref-ortho",
+  "kind": "nested",
+  "display_name": "Referentially Orthotropic Permeability",
+  "summary": "planes of symmetry defined via `mat_axis` (§4.1.1.2). Reference-state k = k0r I + Σ(ka_1r+ka_2r) Va⊗Va.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.14.2.5 Referentially Orthotropic Permeability, p336（4.13）"
+  ],
+  "module": "biphasic",
+  "category": "permeability",
+  "params": {
+    "perm0": {
+      "meaning": "isotropic hydraulic permeability k0r",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "perm1": {
+      "meaning": "hydraulic permeabilities ka_1r along orthogonal directions (a = 1,2,3)",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "perm2": {
+      "meaning": "hydraulic permeabilities ka_2r along orthogonal directions (a = 1,2,3)",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "M0": {
+      "meaning": "isotropic exponential strain-dependence coefficient M0",
+      "unit": "[ ]",
+      "range": "M0 ≥ 0",
+      "required": false
+    },
+    "M": {
+      "meaning": "orthotropic exponential strain-dependence coefficient Ma (a = 1,2,3)",
+      "unit": "[ ]",
+      "range": "Ma ≥ 0",
+      "required": false
+    },
+    "alpha0": {
+      "meaning": "isotropic power-law exponent α0",
+      "unit": "[ ]",
+      "range": "α0 ≥ 0",
+      "required": false
+    },
+    "alpha": {
+      "meaning": "power-law exponent αa (a = 1,2,3)",
+      "unit": "[ ]",
+      "range": "αa ≥ 0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "perm-ref-ortho",
+      "perm0": 0.001,
+      "perm1": "0.01,0.02,0.03",
+      "perm2": "0.001,0.002,0.003",
+      "M0": 0.5,
+      "M": "1.5,2.0,2.5",
+      "alpha0": 2,
+      "alpha": "2.0,2.5,3.0"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

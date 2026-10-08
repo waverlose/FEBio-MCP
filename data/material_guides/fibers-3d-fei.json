@@ -1,0 +1,27 @@
+{
+  "type": "fibers-3d-fei",
+  "kind": "nested",
+  "display_name": "Finite Element Integration Rule",
+  "summary": "for unconstrained **and** uncoupled CFD. Conservative choice N = 1610.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.3.5.2 Finite Element Integration Rule, p276（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "integration scheme (3D only)",
+  "params": {
+    "resolution": {
+      "meaning": "the number of integration points N",
+      "unit": "[ ]",
+      "range": "one of 20, 34, 60, 74, 196, 210, 396, 410, 596, 610, 796, 810, 996, 1010, 1196, 1210, 1396, 1410, 1596, 1610, 1796",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "fibers-3d-fei",
+      "resolution": 1610
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

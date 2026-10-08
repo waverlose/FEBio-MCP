@@ -1,0 +1,27 @@
+{
+  "type": "solub-const",
+  "kind": "nested",
+  "display_name": "Constant Solubility",
+  "summary": "FEBio 材料类型 solub-const。",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.15.4.1 Constant Solubility, p353（4.13）"
+  ],
+  "module": "solute",
+  "category": "solubility",
+  "params": {
+    "solub": {
+      "meaning": "solubility κ̃",
+      "unit": "[ ]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "solub-const",
+      "solub": 1,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

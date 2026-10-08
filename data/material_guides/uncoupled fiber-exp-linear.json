@@ -1,0 +1,59 @@
+{
+  "type": "uncoupled fiber-exp-linear",
+  "kind": "nested",
+  "display_name": "Uncoupled Fiber Exp-Linear",
+  "summary": "to enforce elasticity continuity set `c3` = 0 (code recomputes internally).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.2.2.4 Uncoupled Fiber Exp-Linear, p258（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber (uncoupled)",
+  "params": {
+    "c3": {
+      "meaning": "Exponential stress coefficient",
+      "unit": "[P]",
+      "required": false
+    },
+    "c4": {
+      "meaning": "Fiber uncrimping coefficient",
+      "unit": "[ ]",
+      "required": false
+    },
+    "c5": {
+      "meaning": "Modulus of straightened fibers",
+      "unit": "[P]",
+      "required": false
+    },
+    "k": {
+      "meaning": "Bulk modulus",
+      "unit": "[P]",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    },
+    "lambda": {
+      "meaning": "Fiber stretch for straightened fibers",
+      "unit": "[ ]",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    },
+    "fiber": {
+      "meaning": "Fiber distribution option",
+      "required": true
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "uncoupled fiber-exp-linear",
+      "c3": 0,
+      "c4": 43,
+      "c5": 3,
+      "lam0": 1.05
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  },
+  "params_not_in_pyfebio": [
+    "k",
+    "lambda"
+  ]
+}

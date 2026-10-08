@@ -1,0 +1,19 @@
+{
+  "type": "spherical",
+  "kind": "nested",
+  "display_name": "Spherical",
+  "summary": "isotropic 3D distribution R(n) = 1/(4π).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.3.4.1 Spherical, p267（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber distribution function",
+  "params": {},
+  "example": {
+    "spec": {
+      "type": "spherical"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

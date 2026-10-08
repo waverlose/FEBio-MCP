@@ -1,0 +1,33 @@
+{
+  "type": "EFD uncoupled",
+  "kind": "nested",
+  "display_name": "Ellipsoidal Fiber Distribution Uncoupled",
+  "summary": "**not stable on its own** (fibers carry tension only). Must be placed inside `uncoupled solid mixture` (§4.1.2.16) as a `<solid>` together with a stable ground matrix. Material axis via `mat_axis`/`fiber`.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.2 Ellipsoidal Fiber Distribution Uncoupled, p177（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled) / fiber distribution",
+  "params": {
+    "beta": {
+      "meaning": "parameters (β1, β2, β3)",
+      "unit": "[ ]",
+      "required": false
+    },
+    "ksi": {
+      "meaning": "parameters (ξ1, ξ2, ξ3)",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "EFD uncoupled",
+      "ksi": "10,12,15",
+      "beta": "2.5,3,3",
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

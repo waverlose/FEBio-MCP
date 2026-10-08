@@ -1,0 +1,52 @@
+{
+  "type": "EFD Mooney-Rivlin",
+  "kind": "nested",
+  "display_name": "Ellipsoidal Fiber Distribution Mooney-Rivlin",
+  "summary": "σ̃ = σ̃MR + σ̃f (Mooney-Rivlin basis §4.1.2.9 + ellipsoidal fiber §4.1.2.2).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.3 Ellipsoidal Fiber Distribution Mooney-Rivlin, p178（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled) / fiber distribution",
+  "params": {
+    "c1": {
+      "meaning": "Mooney-Rivlin parameter c1",
+      "unit": "[P]",
+      "required": false
+    },
+    "c2": {
+      "meaning": "Mooney-Rivlin parameter c2",
+      "unit": "[P]",
+      "required": false
+    },
+    "k": {
+      "meaning": "bulk modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "beta": {
+      "meaning": "parameters (β1, β2, β3)",
+      "unit": "[ ]",
+      "required": false
+    },
+    "ksi": {
+      "meaning": "parameters (ξ1, ξ2, ξ3)",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "EFD Mooney-Rivlin",
+      "density": 1e-06,
+      "c1": 1,
+      "c2": 0,
+      "beta": "4.5,4.5,4.5",
+      "ksi": "1,1,1",
+      "k": 1000,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

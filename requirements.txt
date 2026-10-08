@@ -1,0 +1,22 @@
+# FEBio MCP Server 依赖
+# 安装：pip install -r requirements.txt
+# （可选依赖见下方注释；缺失时对应功能自动降级，不影响核心链路）
+
+# --- 核心 ---
+mcp>=2.0              # MCP 协议 SDK（2.x 的 MCPServer）
+pyfebio>=0.3          # FEBio 官方 Python API：生成 .feb + 解析 .xplt
+pypdf>=5.0            # 离线解析官方 PDF 手册
+h5py>=3.10            # 读取 .xplt 转换出的 HDF5
+numpy>=1.26           # 数值处理
+lxml>=5.0             # .feb XML 校验
+
+# --- 后处理出图 ---
+matplotlib>=3.8
+pandas>=2.0
+pillow>=10.0
+
+# --- 可选：参数化网格生成（缺失则 febio_generate_mesh 不可用）---
+gmsh>=4.12
+
+# --- 可选：FEBioStudio GUI 控制（仅 Windows）---
+pywinauto>=0.6.9; sys_platform == "win32"

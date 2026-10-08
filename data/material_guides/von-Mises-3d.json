@@ -1,0 +1,27 @@
+{
+  "type": "von-Mises-3d",
+  "kind": "nested",
+  "display_name": "π−Periodic von Mises Distribution",
+  "summary": "transversely isotropic 3D distribution.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.3.4.3 π−Periodic von Mises Distribution, p269（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber distribution function",
+  "params": {
+    "b": {
+      "meaning": "The concentration parameter b",
+      "unit": "[ ]",
+      "range": "b > 0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "von-Mises-3d",
+      "b": 0.5
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

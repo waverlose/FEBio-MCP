@@ -1,0 +1,89 @@
+{
+  "type": "biphasic",
+  "kind": "standalone",
+  "display_name": "双相材料（可变形固体骨架 + 可流动孔隙流体）",
+  "summary": "基于混合理论，把介质看成「固体骨架 + 孔隙流体」两相共占同一空间。能刻画固结、蠕变、应力松弛，以及加载后流体渗出引起的体积变化与孔隙压力演化。凡是「多孔可变形固体 + 可流动流体」的系统都适用，不限于某一学科。",
+  "module": "biphasic",
+  "category": "biphasic",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.14「Biphasic Materials」, p330-332（4.13 实测）",
+    "FEBio Theory Manual — 双相混合理论章节"
+  ],
+  "manual_ref_note": "页码随手册版本浮动，请以章节号 §4.14 为准。3.x 手册章节编号可能不同。",
+  "typical_uses": [
+    "饱和土体 / 岩石 / 土壤固结",
+    "水凝胶、多孔聚合物、泡沫",
+    "生物软组织（软骨、纤维组织等含水组织）",
+    "过滤介质、多孔电极、吸液材料"
+  ],
+  "params": {
+    "solid": {
+      "meaning": "固体骨架的本构模型（嵌套材料定义）",
+      "kind": "nested_material",
+      "required": true,
+      "note": "常用 neo-Hookean、Mooney-Rivlin、Ogden。手册示例用 v=0.3；不要用 0.0。"
+    },
+    "phi0": {
+      "meaning": "参考构型下的固体体积分数 φs^r（固体占总体积的比例）",
+      "unit": "-",
+      "range": "(0, 1)，必须严格大于 0 且小于 1",
+      "required": true,
+      "typical": {
+        "饱和砂土": "0.55–0.65",
+        "黏土 / 软土": "0.35–0.50",
+        "水凝胶 / 高含水凝胶": "0.05–0.20",
+        "致密含水软组织": "0.15–0.25",
+        "手册示例": "0.2"
+      },
+      "note": "注意：该参数是固体体积分数，不是孔隙率。换算关系 phi0 = 1 - 孔隙率 n。上表仅为量级参考，实际取值应由实测孔隙率反算。"
+    },
+    "permeability": {
+      "meaning": "水力渗透率 k 的本构（嵌套材料定义）",
+      "kind": "nested_material",
+      "required": true,
+      "note": "最常用 perm-const-iso（恒定各向同性）。各向异性介质改用 perm-ref-ortho / perm-ref-trans-iso；应变依赖渗透率用 perm-Holmes-Mow。"
+    },
+    "fluid_density": {
+      "meaning": "孔隙流体密度 ρw",
+      "unit": "质量/体积（与模型其他量保持一致的单位制）",
+      "required": false,
+      "note": "仅在施加体力（重力、离心力）时才需要。不施加体力可省略。"
+    },
+    "tau": {
+      "meaning": "稳定化参数，抑制自由排水边界附近孔隙压力场的数值振荡",
+      "unit": "时间",
+      "range": ">= 0",
+      "required": false,
+      "note": "自由排水边界处法向网格足够细就不需要。粗网格时才给非零值。"
+    }
+  },
+  "example": {
+    "spec": {
+      "name": "porous_sample",
+      "type": "biphasic",
+      "phi0": 0.2,
+      "fluid_density": 1e-06,
+      "solid": {
+        "type": "neo-Hookean",
+        "E": 1.0,
+        "v": 0.3
+      },
+      "permeability": {
+        "type": "perm-const-iso",
+        "perm": 0.001
+      }
+    },
+    "xml": "<material id=\"1\" name=\"porous_sample\" type=\"biphasic\">\n  <solid name=\"Elasticity\" type=\"neo-Hookean\">\n    <E>1.0</E>\n    <v>0.3</v>\n  </solid>\n  <phi0>0.2</phi0>\n  <permeability name=\"Permeability\" type=\"perm-const-iso\">\n    <perm>0.001</perm>\n  </permeability>\n</material>",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  },
+  "analysis_note": "使用该材料时，Module 必须设为 biphasic，Control 的 solver 用 BiphasicSolver，analysis 通常为 TRANSIENT。",
+  "pitfalls": [
+    "固体骨架的 v 取 0.3（手册示例值）；取 0.0 会导致求解异常。",
+    "初始步长过大会产生负雅可比、时间步被反复切割，最终不收敛。实测：同一网格与材料下，step_size=0.05 直接失败，改为 step_size=0.02 即收敛（normal）。排查时应优先怀疑加载速率，而不是更换网格。",
+    "存在自由排水面时，建议在该面施加 zero fluid pressure 边界；否则孔隙压力会异常累积，结果不可信。",
+    "phi0 是固体体积分数，误填孔隙率会导致两相占比错误，结果整体失真。",
+    "biphasic 对网格质量比纯固体模型更敏感，生成网格后应执行质量优化（optimize）。",
+    "该材料为瞬态问题，稳态求解器不适用。"
+  ]
+}

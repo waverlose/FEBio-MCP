@@ -1,0 +1,54 @@
+{
+  "type": "osmotic virial expansion",
+  "kind": "standalone",
+  "display_name": "Osmotic Pressure from Virial Expansion",
+  "summary": "σ = −πI, π = c1c + c2c² + c3c³. Entropic mechanism independent of external bath osmolarity. Typically used in a `solid mixture` resisted by a solid matrix in tension.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.18 Osmotic Pressure from Virial Expansion, p222（4.13）"
+  ],
+  "module": "solid (inferred; used within `solid mixture`)",
+  "category": "elastic solid (unconstrained) / swelling pressure",
+  "params": {
+    "phiw0": {
+      "meaning": "Fluid volume fraction in reference (strain-free) configuration, φw_r",
+      "unit": "[ ]",
+      "required": false
+    },
+    "cr": {
+      "meaning": "Concentration of interstitial solute causing the osmotic pressure (moles per volume of mixture in reference config), cr",
+      "unit": "[n/L³]",
+      "required": false
+    },
+    "c1": {
+      "meaning": "First virial coefficient c1",
+      "unit": "[F·L/n]",
+      "required": false
+    },
+    "c2": {
+      "meaning": "Second virial coefficient c2",
+      "unit": "[F·L⁴/n²]",
+      "required": false
+    },
+    "c3": {
+      "meaning": "Third virial coefficient c3",
+      "unit": "[F·L⁷/n³]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "osmotic virial expansion",
+      "phiw0": 0.8,
+      "cr": {
+        "lc": 1,
+        "text": 100
+      },
+      "c1": 2.436e-06,
+      "c2": 0,
+      "c3": 0,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

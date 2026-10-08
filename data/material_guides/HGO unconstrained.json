@@ -1,0 +1,60 @@
+{
+  "type": "HGO unconstrained",
+  "kind": "standalone",
+  "display_name": "Holzapfel-Gasser-Ogden Unconstrained",
+  "summary": "unlike uncoupled HGO, does not enforce isochoric deformation. May be used as porous solid matrix of a biphasic/multiphasic tissue model.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.14 Holzapfel-Gasser-Ogden Unconstrained, p218（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained, transversely isotropic)",
+  "params": {
+    "c": {
+      "meaning": "Shear modulus of ground matrix",
+      "unit": "[P]",
+      "required": false
+    },
+    "k1": {
+      "meaning": "Fiber modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "k2": {
+      "meaning": "Fiber exponential coefficient",
+      "unit": "[P]",
+      "required": false
+    },
+    "gamma": {
+      "meaning": "Fiber mean orientation angle γ",
+      "unit": "[deg]",
+      "required": false
+    },
+    "kappa": {
+      "meaning": "Fiber dispersion",
+      "unit": "[ ]",
+      "range": "0 ≤ κ ≤ 1/3",
+      "required": false
+    },
+    "k": {
+      "meaning": "Bulk modulus",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "HGO unconstrained",
+      "density": 1e-06,
+      "c": 7.64,
+      "k1": 996.6,
+      "k2": 524.6,
+      "gamma": 49.98,
+      "kappa": 0.226,
+      "k": 7640,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

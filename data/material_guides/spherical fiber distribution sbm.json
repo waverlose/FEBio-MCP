@@ -1,0 +1,59 @@
+{
+  "type": "spherical fiber distribution sbm",
+  "kind": "nested",
+  "display_name": "Spherical Fiber Distribution from Solid-Bound Molecule",
+  "summary": "**may only be used as the solid (or a component) in a multiphasic mixture (§4.16).** Solid-bound molecule must be defined in `<Globals>` §3.4.3 and included via `<solid_bound>`; `sbm` = global index. ξ = ξ0 (ρσ_r/ρ0)^γ. Not stable on its own (combine via `solid mixture`).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.29 Spherical Fiber Distribution from Solid-Bound Molecule, p235（4.13）"
+  ],
+  "module": "multiphasic (must be used as the solid or component of the solid in a multiphasic mixture §4.16)",
+  "category": "elastic solid (unconstrained) / fiber distribution + multiphasic",
+  "params": {
+    "alpha": {
+      "meaning": "parameter α",
+      "unit": "[ ]",
+      "range": "α ≥ 0",
+      "required": false
+    },
+    "beta": {
+      "meaning": "parameter β",
+      "unit": "[ ]",
+      "range": "β ≥ 2",
+      "required": false
+    },
+    "ksi0": {
+      "meaning": "fiber modulus ξ0",
+      "unit": "[P]",
+      "required": false
+    },
+    "gamma": {
+      "meaning": "fiber modulus exponent γ",
+      "unit": "[ ]",
+      "required": false
+    },
+    "rho0": {
+      "meaning": "fiber mass density ρ0",
+      "unit": "[M/L³]",
+      "required": false
+    },
+    "sbm": {
+      "meaning": "index of solid-bound molecule σ",
+      "unit": "[ ]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "spherical fiber distribution sbm",
+      "alpha": 0,
+      "beta": 2.5,
+      "ksi0": 10,
+      "gamma": 2,
+      "rho0": 1,
+      "sbm": 1,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

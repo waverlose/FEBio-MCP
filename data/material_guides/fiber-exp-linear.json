@@ -1,0 +1,48 @@
+{
+  "type": "fiber-exp-linear",
+  "kind": "nested",
+  "display_name": "Fiber Exp-Linear",
+  "summary": "based on trans-iso Mooney-Rivlin [91]. Not stable alone; use within a solid mixture. To enforce elasticity continuity at λm set `c3` = 0 (code recomputes c3 = c5/c4 · e^(−c4(λm−1))).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.2.1.6 Fiber Exp-Linear, p250（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber (unconstrained)",
+  "params": {
+    "c3": {
+      "meaning": "Exponential stress coefficient",
+      "unit": "[P]",
+      "required": false
+    },
+    "c4": {
+      "meaning": "Fiber uncrimping coefficient",
+      "unit": "[ ]",
+      "required": false
+    },
+    "c5": {
+      "meaning": "Modulus of straightened fibers",
+      "unit": "[P]",
+      "required": false
+    },
+    "lambda": {
+      "meaning": "Fiber stretch for straightened fibers",
+      "unit": "[ ]",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "fiber-exp-linear",
+      "c3": 0,
+      "c4": 43,
+      "c5": 3,
+      "lam0": 1.05
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  },
+  "params_not_in_pyfebio": [
+    "lambda"
+  ]
+}

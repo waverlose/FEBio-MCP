@@ -1,0 +1,59 @@
+{
+  "type": "lung",
+  "kind": "standalone",
+  "display_name": "Lung Material",
+  "summary": "Birzle human lung tissue model.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.26 Lung Material, p232（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained)",
+  "params": {
+    "E": {
+      "meaning": "Young's modulus, E",
+      "unit": "[P]",
+      "required": false
+    },
+    "v": {
+      "meaning": "Poisson's ratio, ν",
+      "unit": "[ ]",
+      "required": false
+    },
+    "c1": {
+      "meaning": "Birzle-Wall c1 parameter, c1",
+      "unit": "[P]",
+      "required": false
+    },
+    "c3": {
+      "meaning": "Birzle-Wall c3 parameter, c3",
+      "unit": "[P]",
+      "required": false
+    },
+    "d1": {
+      "meaning": "Birzle-Wall exponential d1 parameter, d1",
+      "unit": "[ ]",
+      "required": false
+    },
+    "d3": {
+      "meaning": "Birzle-Wall exponential d3 parameter, d3",
+      "unit": "[ ]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "lung",
+      "density": 1e-06,
+      "E": 1913.7,
+      "v": 0.3413,
+      "c1": 278.2,
+      "c3": 5.766,
+      "d1": 3,
+      "d3": 6,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

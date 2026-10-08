@@ -1,0 +1,61 @@
+{
+  "type": "Holzapfel-Gasser-Ogden",
+  "kind": "standalone",
+  "display_name": "Holzapfel-Gasser-Ogden",
+  "summary": "two fiber families at ±γ in {e1,e2} plane. κ=0 ⇒ no dispersion; κ=1/3 ⇒ isotropic dispersion. Default volumetric function U(J)=k/2(J²−1/2−ln J).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.8 Holzapfel-Gasser-Ogden, p183（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled, transversely isotropic)",
+  "params": {
+    "c": {
+      "meaning": "Shear modulus of ground matrix",
+      "unit": "[P]",
+      "required": false
+    },
+    "k1": {
+      "meaning": "Fiber modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "k2": {
+      "meaning": "Fiber exponential coefficient",
+      "unit": "[P]",
+      "required": false
+    },
+    "gamma": {
+      "meaning": "Fiber mean orientation angle γ",
+      "unit": "[deg]",
+      "required": false
+    },
+    "kappa": {
+      "meaning": "Fiber dispersion",
+      "unit": "[ ]",
+      "range": "0 ≤ κ ≤ 1/3",
+      "required": false
+    },
+    "k": {
+      "meaning": "bulk modulus (base uncoupled param)",
+      "unit": "[P]",
+      "manual_default": "0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "Holzapfel-Gasser-Ogden",
+      "density": 1e-06,
+      "c": 1,
+      "k1": 10,
+      "k2": 1,
+      "gamma": 45,
+      "kappa": 0.1,
+      "k": 100,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

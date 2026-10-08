@@ -1,0 +1,44 @@
+{
+  "type": "compressible Gent",
+  "kind": "standalone",
+  "display_name": "Gent Compressible",
+  "summary": "FEBio 材料类型 compressible Gent。",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.11 Gent Compressible, p215（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained)",
+  "params": {
+    "G": {
+      "meaning": "Shear modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "Jm": {
+      "meaning": "Jm = Im − 1, with Im max value for first invariant I1",
+      "unit": "[P]",
+      "required": false
+    },
+    "k": {
+      "meaning": "Bulk modulus",
+      "unit": "[P]",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "compressible Gent",
+      "density": 1e-06,
+      "G": 3.14,
+      "Jm": 1.5,
+      "K": 100000,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  },
+  "params_not_in_pyfebio": [
+    "k"
+  ]
+}

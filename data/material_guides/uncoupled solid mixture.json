@@ -1,0 +1,27 @@
+{
+  "type": "uncoupled solid mixture",
+  "kind": "nested",
+  "display_name": "Uncoupled Solid Mixture",
+  "summary": "mixture of quasi-incompressible elastic solids; stress = sum of solids' stresses; bulk modulus = sum of the `<solid>` bulk moduli (a `<k>` outside `<solid>` is **ignored**). `mat_axis` may be given at `<material>` level (local element axes rel. global) and/or within each `<solid>` (local material axes rel. element); they compound. Material axes in `<ElementData>` ≡ specification at `<material>` level. Each `<solid>` may itself be any material from §4.1.2.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.16 Uncoupled Solid Mixture, p193（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (container, uncoupled)",
+  "params": {
+    "solid": {
+      "meaning": "Container tag for solid material (any number)",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    }
+  },
+  "example": {
+    "buildable": false,
+    "reason": "ValidationError: 23 validation errors for SolidMixtureUC",
+    "source": "pyfebio 默认值不足以构造出该材料，需人工补全必要参数后给出示例。",
+    "verified": false
+  },
+  "params_not_in_pyfebio": [
+    "solid"
+  ]
+}

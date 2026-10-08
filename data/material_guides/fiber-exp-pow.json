@@ -1,0 +1,43 @@
+{
+  "type": "fiber-exp-pow",
+  "kind": "nested",
+  "display_name": "Fiber with Exponential-Power Law",
+  "summary": "oriented along e1 by default; set via `fiber`/`mat_axis`. α→0 ⇒ power law ξ/β (In−I0)^β. Use β > 2 for smooth compression→tension transition.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.2.1.1 Fiber with Exponential-Power Law, p244（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber (unconstrained)",
+  "params": {
+    "ksi": {
+      "meaning": "ξ, a measure of the fiber modulus",
+      "unit": "[P]",
+      "range": "ξ > 0",
+      "required": false
+    },
+    "alpha": {
+      "meaning": "α, coefficient of exponential argument",
+      "unit": "[ ]",
+      "range": "α ≥ 0",
+      "required": false
+    },
+    "beta": {
+      "meaning": "β, power of exponential argument",
+      "unit": "[ ]",
+      "range": "β ≥ 2",
+      "required": false
+    },
+    "lam0": {
+      "meaning": "λ0, stretch threshold for tensile response",
+      "unit": "[ ]",
+      "manual_default": "1",
+      "required": false
+    }
+  },
+  "example": {
+    "buildable": false,
+    "reason": "ValidationError: 1 validation error for FiberExponentialPower",
+    "source": "pyfebio 默认值不足以构造出该材料，需人工补全必要参数后给出示例。",
+    "verified": false
+  }
+}

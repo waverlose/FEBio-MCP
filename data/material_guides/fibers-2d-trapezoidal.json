@@ -1,0 +1,27 @@
+{
+  "type": "fibers-2d-trapezoidal",
+  "kind": "nested",
+  "display_name": "Trapezoidal Rule",
+  "summary": "for unconstrained **and** uncoupled CFD.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.3.5.3 Trapezoidal Rule, p277（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "integration scheme (2D only)",
+  "params": {
+    "nth": {
+      "meaning": "Number of integration points N",
+      "unit": "[ ]",
+      "range": "any > 0 (odd preferred)",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "fibers-2d-trapezoidal",
+      "nth": 31
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

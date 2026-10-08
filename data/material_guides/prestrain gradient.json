@@ -1,0 +1,28 @@
+{
+  "type": "prestrain gradient",
+  "kind": "nested",
+  "display_name": "prestrain gradient (generator)",
+  "summary": "Fg = I(1−r) + F0 r. Example: `<prestrain type=\"prestrain gradient\"><ramp lc=\"1\">1.0</ramp><F0>2,0,0,0,2,0,0,0,2</F0></prestrain>`.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.21.2.1 prestrain gradient, p403（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "prestrain generator",
+  "params": {
+    "ramp": {
+      "meaning": "scale factor that ramps up the prestrain gradient",
+      "manual_default": "1",
+      "required": false
+    },
+    "F0": {
+      "meaning": "3x3 target prestrain gradient matrix",
+      "required": false
+    }
+  },
+  "example": {
+    "buildable": false,
+    "reason": "读取默认值失败：ValidationError: 1 validation error for PrestrainGradient\nramp\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+    "source": "pyfebio 默认值不足以构造出该材料，需人工补全必要参数后给出示例。",
+    "verified": false
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "type": "trans iso Mooney-Rivlin",
+  "kind": "standalone",
+  "display_name": "Transversely Isotropic Mooney-Rivlin",
+  "summary": "three-field element formulation. Optional active contraction (§4.1.3). `C6` determined by stress continuity at λm.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.14 Transversely Isotropic Mooney-Rivlin, p190（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled, transversely isotropic)",
+  "params": {
+    "c1": {
+      "meaning": "Mooney-Rivlin coefficient 1",
+      "unit": "[P]",
+      "required": false
+    },
+    "c2": {
+      "meaning": "Mooney-Rivlin coefficient 2",
+      "unit": "[P]",
+      "required": false
+    },
+    "c3": {
+      "meaning": "Exponential stress coefficient",
+      "unit": "[P]",
+      "required": false
+    },
+    "c4": {
+      "meaning": "Fiber uncrimping coefficient",
+      "unit": "[ ]",
+      "required": false
+    },
+    "c5": {
+      "meaning": "Modulus of straightened fibers",
+      "unit": "[P]",
+      "required": false
+    },
+    "lam_max": {
+      "meaning": "Fiber stretch for straightened fibers",
+      "unit": "[ ]",
+      "required": false
+    },
+    "fiber": {
+      "meaning": "Fiber distribution option",
+      "required": true
+    },
+    "active_contraction": {
+      "meaning": "Optional active contraction",
+      "required": true
+    },
+    "k": {
+      "meaning": "bulk modulus (base uncoupled param)",
+      "unit": "[P]",
+      "manual_default": "0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "trans iso Mooney-Rivlin",
+      "density": 1e-06,
+      "c1": 13.85,
+      "c2": 0,
+      "c3": 2.07,
+      "c4": 61.44,
+      "c5": 640.7,
+      "lam_max": 1.03,
+      "k": 100,
+      "fiber": {
+        "type": "vector",
+        "text": "1.0,0.0,0.0"
+      },
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

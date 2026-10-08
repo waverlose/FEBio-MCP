@@ -1,0 +1,27 @@
+{
+  "type": "fiber-NH",
+  "kind": "nested",
+  "display_name": "Fiber with Neo-Hookean Law",
+  "summary": "Ψn(In) = µ/4 (In−1)².",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.2.1.2 Fiber with Neo-Hookean Law, p246（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber (unconstrained)",
+  "params": {
+    "mu": {
+      "meaning": "µ, a measure of the fiber modulus",
+      "unit": "[P]",
+      "range": "µ > 0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "fiber-NH",
+      "mu": 1
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

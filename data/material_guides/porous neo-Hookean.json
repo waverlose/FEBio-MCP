@@ -1,0 +1,36 @@
+{
+  "type": "porous neo-Hookean",
+  "kind": "standalone",
+  "display_name": "Porous Neo-Hookean",
+  "summary": "pores compressible, skeleton intrinsically incompressible; switches to incompressible upon pore closure. Behaves well down to φw ≈ 0.015. Setting φw_r = 0 is numerically poor.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.25 Porous Neo-Hookean, p230（4.13）"
+  ],
+  "module": "solid (inferred; may be used as porous solid matrix of a biphasic/multiphasic material, inheriting φs_r from the parent)",
+  "category": "elastic solid (unconstrained) / porous",
+  "params": {
+    "E": {
+      "meaning": "Young's modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "phi0": {
+      "meaning": "referential solid volume fraction φs_r",
+      "unit": "[ ]",
+      "range": "0 ≤ φs_r < 1",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "porous neo-Hookean",
+      "density": 1e-06,
+      "E": 1,
+      "phi0": 0.5,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

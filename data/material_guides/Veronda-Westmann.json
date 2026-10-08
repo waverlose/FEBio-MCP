@@ -1,0 +1,41 @@
+{
+  "type": "Veronda-Westmann",
+  "kind": "standalone",
+  "display_name": "Veronda-Westmann",
+  "summary": "exponential stiffening; used for skin tissue.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.17 Veronda-Westmann, p194（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled)",
+  "params": {
+    "c1": {
+      "meaning": "First VW coefficient",
+      "unit": "[P]",
+      "required": false
+    },
+    "c2": {
+      "meaning": "Second VW coefficient",
+      "unit": "[ ]",
+      "required": false
+    },
+    "k": {
+      "meaning": "bulk modulus (base uncoupled param)",
+      "unit": "[P]",
+      "manual_default": "0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "Veronda-Westmann",
+      "density": 1e-06,
+      "c1": 1000,
+      "c2": 2000,
+      "k": 1000,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

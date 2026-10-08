@@ -1,0 +1,36 @@
+{
+  "type": "fiber-Kiousis-uncoupled",
+  "kind": "nested",
+  "display_name": "Fiber Kiousis Uncoupled",
+  "summary": "Kiousis et al., balloon-stent model.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.2.2.2 Fiber Kiousis Uncoupled, p257（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber (uncoupled)",
+  "params": {
+    "d1": {
+      "meaning": "d1, a measure of the fiber modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "d2": {
+      "meaning": "d2, square of the stretch ratio when the fiber engages",
+      "required": false
+    },
+    "n": {
+      "meaning": "n, power exponent",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "fiber-Kiousis-uncoupled",
+      "d1": 500,
+      "d2": 2.25,
+      "n": 3
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

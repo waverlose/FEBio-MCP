@@ -1,0 +1,42 @@
+{
+  "type": "perfect osmometer",
+  "kind": "standalone",
+  "display_name": "Perfect Osmometer Equilibrium Osmotic Pressure",
+  "summary": "**not stable on its own** — combine with an elastic material using `solid mixture` (§4.1.4.27). Requires global R and T. σ = −πI, π = RT(c̄−c̄*).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.24 Perfect Osmometer Equilibrium Osmotic Pressure, p228（4.13）"
+  ],
+  "module": "solid (inferred; used within `solid mixture`)",
+  "category": "elastic solid (unconstrained) / swelling pressure",
+  "params": {
+    "phiw0": {
+      "meaning": "gel porosity (fluid volume fraction) in reference (strain-free) configuration, φw_0",
+      "unit": "[ ]",
+      "required": false
+    },
+    "iosm": {
+      "meaning": "interstitial fluid osmolarity in reference configuration, c̄0",
+      "unit": "[n/L³]",
+      "required": false
+    },
+    "bosm": {
+      "meaning": "external bath osmolarity, c̄*",
+      "unit": "[n/L³]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "perfect osmometer",
+      "phiw0": 0.8,
+      "iosm": 300,
+      "bosm": {
+        "lc": 1,
+        "text": 1
+      },
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

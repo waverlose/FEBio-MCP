@@ -1,0 +1,35 @@
+{
+  "type": "isotropic Hencky",
+  "kind": "standalone",
+  "display_name": "Isotropic Hencky",
+  "summary": "objective for large deformations/rotations; reduces to linear elastic at small strain.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.12 Isotropic Hencky, p215（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained)",
+  "params": {
+    "E": {
+      "meaning": "Young's modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "v": {
+      "meaning": "Poisson's ratio",
+      "unit": "[ ]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "isotropic Hencky",
+      "density": 1e-06,
+      "E": 1000,
+      "v": 0.45,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

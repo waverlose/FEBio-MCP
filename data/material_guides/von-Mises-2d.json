@@ -1,0 +1,27 @@
+{
+  "type": "von-Mises-2d",
+  "kind": "nested",
+  "display_name": "von Mises Distribution",
+  "summary": "orthotropic 2D distribution in the {e1,e2} plane.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.3.4.6 von Mises Distribution, p273（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber distribution function",
+  "params": {
+    "b": {
+      "meaning": "The concentration parameter b",
+      "unit": "[ ]",
+      "range": "b > 0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "von-Mises-2d",
+      "b": 0.5
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

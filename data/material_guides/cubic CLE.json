@@ -1,0 +1,47 @@
+{
+  "type": "cubic CLE",
+  "kind": "standalone",
+  "display_name": "Cubic CLE",
+  "summary": "conewise linear elastic, cubic symmetry (Curnier et al.). Formulated for infinitesimal strain; finite-strain behavior may not be physically realistic.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.5 Cubic CLE, p207（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained, cubic symmetry)",
+  "params": {
+    "lp1": {
+      "meaning": "Tensile diagonal first Lamé coefficient λ+1",
+      "unit": "[P]",
+      "required": false
+    },
+    "lm1": {
+      "meaning": "Compressive diagonal first Lamé coefficient λ−1",
+      "unit": "[P]",
+      "required": false
+    },
+    "l2": {
+      "meaning": "Off-diagonal first Lamé coefficient λ2",
+      "unit": "[P]",
+      "required": false
+    },
+    "mu": {
+      "meaning": "Second Lamé coefficient µ",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "cubic CLE",
+      "density": 1e-06,
+      "lp1": 13.01,
+      "lm1": 0.49,
+      "l2": 0.66,
+      "mu": 0.16,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

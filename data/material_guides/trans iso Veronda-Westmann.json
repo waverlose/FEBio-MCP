@@ -1,0 +1,77 @@
+{
+  "type": "trans iso Veronda-Westmann",
+  "kind": "standalone",
+  "display_name": "Transversely Isotropic Veronda-Westmann",
+  "summary": "uses Veronda-Westmann model for the isotropic matrix; other params same meaning as trans-iso Mooney-Rivlin.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.15 Transversely Isotropic Veronda-Westmann, p192（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled, transversely isotropic)",
+  "params": {
+    "c1": {
+      "meaning": "Veronda-Westmann coefficient 1",
+      "unit": "[P]",
+      "required": false
+    },
+    "c2": {
+      "meaning": "Veronda-Westmann coefficient 2",
+      "unit": "[ ]",
+      "required": false
+    },
+    "c3": {
+      "meaning": "Exponential stress coefficient",
+      "unit": "[P]",
+      "required": false
+    },
+    "c4": {
+      "meaning": "Fiber uncrimping coefficient",
+      "unit": "[ ]",
+      "required": false
+    },
+    "c5": {
+      "meaning": "Modulus of straightened fibers",
+      "unit": "[P]",
+      "required": false
+    },
+    "lam_max": {
+      "meaning": "Fiber stretch for straightened fibers",
+      "unit": "[ ]",
+      "required": false
+    },
+    "fiber": {
+      "meaning": "Fiber distribution option.",
+      "required": true
+    },
+    "active_contraction": {
+      "meaning": "Optional active contraction",
+      "required": true
+    },
+    "k": {
+      "meaning": "bulk modulus (base uncoupled param)",
+      "unit": "[P]",
+      "manual_default": "0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "trans iso Veronda-Westmann",
+      "density": 1e-06,
+      "c1": 13.85,
+      "c2": 0,
+      "c3": 2.07,
+      "c4": 61.44,
+      "c5": 640.7,
+      "lam_max": 1.03,
+      "k": 100,
+      "fiber": {
+        "type": "vector",
+        "text": "1.0,0.0,0.0"
+      },
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

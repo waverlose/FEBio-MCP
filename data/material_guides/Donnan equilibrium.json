@@ -1,0 +1,46 @@
+{
+  "type": "Donnan equilibrium",
+  "kind": "standalone",
+  "display_name": "Donnan Equilibrium Swelling",
+  "summary": "**not stable on its own** — combine with an elastic material using `solid mixture` (§4.1.4.27). Requires global R and T. Donnan swelling → 0 when cF_0 = 0 or bosm → ∞; recommend a loadcurve on `<cF0>` or `<bosm>` to ease into initial swelling.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.6 Donnan Equilibrium Swelling, p209（4.13）"
+  ],
+  "module": "solid (inferred; used within `solid mixture`)",
+  "category": "elastic solid (unconstrained) / swelling pressure",
+  "params": {
+    "phiw0": {
+      "meaning": "gel porosity (fluid volume fraction) in reference (strain-free) configuration, φw_0",
+      "unit": "[ ]",
+      "range": "0 < φw_0 < 1",
+      "required": false
+    },
+    "cF0": {
+      "meaning": "fixed-charge density in reference (strain-free) configuration, cF_0",
+      "unit": "[n/L³]",
+      "range": "may be negative or positive",
+      "required": false
+    },
+    "bosm": {
+      "meaning": "external bath osmolarity, c̄*",
+      "unit": "[n/L³]",
+      "required": false
+    },
+    "Phi": {
+      "meaning": "osmotic coefficient, Φ",
+      "unit": "[ ]",
+      "range": "use Φ=1 for ideal Donnan",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    }
+  },
+  "example": {
+    "buildable": false,
+    "reason": "ValidationError: 1 validation error for DonnanEquilibrium",
+    "source": "pyfebio 默认值不足以构造出该材料，需人工补全必要参数后给出示例。",
+    "verified": false
+  },
+  "params_not_in_pyfebio": [
+    "Phi"
+  ]
+}

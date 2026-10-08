@@ -1,0 +1,55 @@
+{
+  "type": "uncoupled isotropic Lee-Sacks",
+  "kind": "standalone",
+  "display_name": "Isotropic Lee-Sacks uncoupled",
+  "summary": "Fung-type, Kamensky CMAME 2018. `tangent_scale` may improve convergence (20 used in Kamensky).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.19 Isotropic Lee-Sacks uncoupled, p197（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled)",
+  "params": {
+    "c0": {
+      "meaning": "shear-modulus of neo-Hookean matrix",
+      "unit": "[P]",
+      "required": false
+    },
+    "c1": {
+      "meaning": "c1 parameter",
+      "unit": "[P]",
+      "required": false
+    },
+    "c2": {
+      "meaning": "c2 parameter",
+      "unit": "[ ]",
+      "required": false
+    },
+    "tangent_scale": {
+      "meaning": "scale factor for c0 when used in tangent",
+      "unit": "[ ]",
+      "manual_default": "1",
+      "required": false
+    },
+    "k": {
+      "meaning": "bulk modulus (base uncoupled param)",
+      "unit": "[P]",
+      "manual_default": "0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "uncoupled isotropic Lee-Sacks",
+      "density": 1e-06,
+      "c0": 10,
+      "c1": 0.209,
+      "c2": 9.046,
+      "tangent_scale": 1,
+      "k": 1000,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

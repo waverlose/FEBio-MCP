@@ -1,0 +1,112 @@
+{
+  "type": "multiphasic",
+  "kind": "standalone",
+  "display_name": "Multiphasic",
+  "summary": "triphasic = special case of multiphasic (solvent + pair of monovalent ions). Requires global R, θ, and Faraday's constant Fc under `<Constants>`, plus `<Solutes>` entries. To neglect osmotic effects set Φ = 0 (then p̃ = p). A solute with mixture diffusivity dσ = 0 and free diffusivity dσ_0 = 1 behaves like a solid-bound molecule.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.16.2 General Specification of Multiphasic Materials, p362（4.13）"
+  ],
+  "module": "multiphasic",
+  "category": "multiphasic",
+  "params": {
+    "solid": {
+      "meaning": "specification of the solid matrix (from §4.1.4)",
+      "required": false
+    },
+    "phi0": {
+      "meaning": "solid volume fraction φs_r in the reference configuration",
+      "unit": "[ ]",
+      "range": "0 < φ0 < 1",
+      "required": false
+    },
+    "fixed_charge_density": {
+      "meaning": "fixed charge density cF_r in the reference configuration",
+      "unit": "[n/L³]",
+      "range": "may be negative, positive, or zero",
+      "required": false
+    },
+    "permeability": {
+      "meaning": "specification of the hydraulic permeability k (§4.14.2)",
+      "required": false
+    },
+    "solvent_supply": {
+      "meaning": "specification of the solvent supply φ̂w (§4.16.3)",
+      "required": true
+    },
+    "osmotic_coefficient": {
+      "meaning": "specification of the osmotic coefficient Φ (§4.15.5)",
+      "required": false
+    },
+    "solute": {
+      "meaning": "specification of the solute properties (required `sol` attribute; multiple allowed)",
+      "required": true
+    },
+    "solid_bound": {
+      "meaning": "specification of solid-bound molecule (required `sbm` attribute referencing an id in `<Globals><SolidBoundMolecules>`; multiple allowed)",
+      "required": true
+    },
+    "rho0": {
+      "meaning": "(child of `solid_bound`) initial value of the referential apparent density ρσ_r",
+      "unit": "[M/L³]",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    },
+    "rhomin": {
+      "meaning": "(child of `solid_bound`) optional minimum allowable ρσ_r",
+      "unit": "[M/L³]",
+      "manual_default": "0",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    },
+    "rhomax": {
+      "meaning": "(child of `solid_bound`) optional maximum allowable ρσ_r",
+      "unit": "[M/L³]",
+      "manual_default": "none",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    },
+    "diffusivity": {
+      "meaning": "(child of `solute`) diffusivities dα and dα_0 (§4.15.3)",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    },
+    "solubility": {
+      "meaning": "(child of `solute`) effective solubility κ̂α (§4.15.4)",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "multiphasic",
+      "fluid_density": 1e-06,
+      "phi0": 0.2,
+      "fixed_charge_density": 0,
+      "solid": {
+        "type": "neo-Hookean",
+        "density": 1e-06,
+        "E": 1,
+        "v": 0.3
+      },
+      "permeability": {
+        "type": "perm-const-iso",
+        "perm": 0.001
+      },
+      "osmotic_coefficient": {
+        "type": "osm-coef-const",
+        "osmcoef": 1
+      },
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  },
+  "params_not_in_pyfebio": [
+    "rho0",
+    "rhomin",
+    "rhomax",
+    "diffusivity",
+    "solubility"
+  ]
+}

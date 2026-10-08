@@ -1,0 +1,92 @@
+{
+  "type": "perm-ref-trans-iso",
+  "kind": "nested",
+  "display_name": "Referentially Transversely Isotropic Permeability",
+  "summary": "axial direction defined via `fiber`/`mat_axis` (§4.1.1).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.14.2.6 Referentially Transversely Isotropic Permeability, p338（4.13）"
+  ],
+  "module": "biphasic",
+  "category": "permeability",
+  "params": {
+    "perm0": {
+      "meaning": "isotropic hydraulic permeability k0r",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "perm1A": {
+      "meaning": "axial hydraulic permeability kA_1r",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "perm2A": {
+      "meaning": "axial hydraulic permeability kA_2r",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "perm1T": {
+      "meaning": "transverse hydraulic permeability kT_1r",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "perm2T": {
+      "meaning": "transverse hydraulic permeability kT_2r",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "M0": {
+      "meaning": "isotropic exponential strain-dependence coefficient M0",
+      "unit": "[ ]",
+      "range": "M0 ≥ 0",
+      "required": false
+    },
+    "MA": {
+      "meaning": "axial exponential strain-dependence coefficient MA",
+      "unit": "[ ]",
+      "range": "MA ≥ 0",
+      "required": false
+    },
+    "MT": {
+      "meaning": "transverse exponential strain-dependence coefficient MT",
+      "unit": "[ ]",
+      "range": "MT ≥ 0",
+      "required": false
+    },
+    "alpha0": {
+      "meaning": "isotropic power-law exponent α0",
+      "unit": "[ ]",
+      "range": "α0 ≥ 0",
+      "required": false
+    },
+    "alphaA": {
+      "meaning": "axial power-law exponent αA",
+      "unit": "[ ]",
+      "range": "αA ≥ 0",
+      "required": false
+    },
+    "alphaT": {
+      "meaning": "transverse power-law exponent αT",
+      "unit": "[ ]",
+      "range": "αT ≥ 0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "perm-ref-trans-iso",
+      "perm0": 0.002,
+      "perm1A": 0.01,
+      "perm2A": 0.01,
+      "perm1T": 0.001,
+      "perm2T": 0.05,
+      "M0": 1,
+      "MA": 0.5,
+      "MT": 1.5,
+      "alpha0": 1,
+      "alphaA": 0.5,
+      "alphaT": 2
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

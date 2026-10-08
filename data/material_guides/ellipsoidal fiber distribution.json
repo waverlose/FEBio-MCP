@@ -1,0 +1,32 @@
+{
+  "type": "ellipsoidal fiber distribution",
+  "kind": "nested",
+  "display_name": "Ellipsoidal Fiber Distribution",
+  "summary": "**not stable on its own** — combine with a stable compressible ground matrix using `solid mixture` (§4.1.4.27). Material axis via `mat_axis`.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.7 Ellipsoidal Fiber Distribution, p211（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained) / fiber distribution",
+  "params": {
+    "beta": {
+      "meaning": "parameters (β1, β2, β3)",
+      "unit": "[ ]",
+      "required": false
+    },
+    "ksi": {
+      "meaning": "parameters (ξ1, ξ2, ξ3)",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "ellipsoidal fiber distribution",
+      "ksi": "10,12,15",
+      "beta": "2.5,3,3"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

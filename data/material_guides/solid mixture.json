@@ -1,0 +1,37 @@
+{
+  "type": "solid mixture",
+  "kind": "nested",
+  "display_name": "Solid Mixture",
+  "summary": "mixture of elastic solids sharing the same reference configuration and deformation gradient; stress = sum of solids' stresses. `mat_axis` may be at `<material>` level and/or per `<solid>` and compounds (see Uncoupled Solid Mixture notes).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.27 Solid Mixture, p233（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (container, unconstrained)",
+  "params": {
+    "solid": {
+      "meaning": "Container tag for unconstrained solid material (any number)",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "solid mixture",
+      "density": 1e-06,
+      "solid_list": [
+        {
+          "type": "neo-Hookean",
+          "E": 1.0,
+          "v": 0.3
+        }
+      ],
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  },
+  "params_not_in_pyfebio": [
+    "solid"
+  ]
+}

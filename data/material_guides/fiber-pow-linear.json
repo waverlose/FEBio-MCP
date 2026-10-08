@@ -1,0 +1,41 @@
+{
+  "type": "fiber-pow-linear",
+  "kind": "nested",
+  "display_name": "Fiber with Toe-Linear Response",
+  "summary": "fiber elasticity at strain origin reduces to zero unless β = 2.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.2.1.4 Fiber with Toe-Linear Response, p248（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber (unconstrained)",
+  "params": {
+    "E": {
+      "meaning": "E, the fiber modulus in the linear range",
+      "unit": "[P]",
+      "range": "E ≥ 0",
+      "required": false
+    },
+    "beta": {
+      "meaning": "β, the power-law exponent in the toe region",
+      "unit": "[ ]",
+      "range": "β ≥ 2",
+      "required": false
+    },
+    "lam0": {
+      "meaning": "λ0, stretch ratio when toe transitions to linear",
+      "unit": "[ ]",
+      "range": "λ0 > 1",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "fiber-pow-linear",
+      "E": 1,
+      "beta": 2,
+      "lam0": 1.01
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

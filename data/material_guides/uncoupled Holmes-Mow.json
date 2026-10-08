@@ -1,0 +1,42 @@
+{
+  "type": "uncoupled Holmes-Mow",
+  "kind": "standalone",
+  "display_name": "Uncoupled Holmes-Mow",
+  "summary": "FEBio 材料类型 uncoupled Holmes-Mow。",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.7 Uncoupled Holmes-Mow, p182（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled)",
+  "params": {
+    "mu": {
+      "meaning": "Shear modulus µ",
+      "unit": "[P]",
+      "required": false
+    },
+    "beta": {
+      "meaning": "Exponential stiffening coefficient β",
+      "unit": "[ ]",
+      "required": false
+    },
+    "k": {
+      "meaning": "bulk modulus (base uncoupled param)",
+      "unit": "[P]",
+      "manual_default": "0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "uncoupled Holmes-Mow",
+      "density": 1e-06,
+      "mu": 0.5,
+      "beta": 2,
+      "k": 1000,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

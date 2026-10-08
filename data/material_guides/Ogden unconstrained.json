@@ -1,0 +1,48 @@
+{
+  "type": "Ogden unconstrained",
+  "kind": "standalone",
+  "display_name": "Ogden Unconstrained",
+  "summary": "unspecified parameters assumed zero.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.23 Ogden Unconstrained, p227（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained)",
+  "params": {
+    "c[n]": {
+      "meaning": "Coefficient of nth term, n = 1..6",
+      "unit": "[P]",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    },
+    "m[n]": {
+      "meaning": "Exponent of nth term, n = 1..6",
+      "unit": "[ ]",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    },
+    "cp": {
+      "meaning": "Bulk-like modulus",
+      "unit": "[P]",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "Ogden unconstrained",
+      "density": 1e-06,
+      "m1": 1,
+      "c1": 1,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  },
+  "params_not_in_pyfebio": [
+    "c[n]",
+    "m[n]",
+    "cp"
+  ]
+}

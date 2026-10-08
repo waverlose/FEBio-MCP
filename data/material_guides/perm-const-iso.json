@@ -1,0 +1,26 @@
+{
+  "type": "perm-const-iso",
+  "kind": "nested",
+  "display_name": "Constant Isotropic Permeability",
+  "summary": "k = k I, constant; reasonable only for small strains.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.14.2.1 Constant Isotropic Permeability, p332（4.13）"
+  ],
+  "module": "biphasic",
+  "category": "permeability",
+  "params": {
+    "perm": {
+      "meaning": "hydraulic permeability k",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "perm-const-iso",
+      "perm": 0.001
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

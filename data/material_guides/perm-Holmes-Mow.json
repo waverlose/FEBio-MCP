@@ -1,0 +1,40 @@
+{
+  "type": "perm-Holmes-Mow",
+  "kind": "nested",
+  "display_name": "Holmes-Mow",
+  "summary": "k(J) = k0 ((J−φs_r)/(1−φ0))^α e^(½M(J²−1)). If J ≤ φs_r FEBio warns and restarts with shorter time step; recommend shorter time steps near pore closure.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.14.2.3 Holmes-Mow, p334（4.13）"
+  ],
+  "module": "biphasic",
+  "category": "permeability",
+  "params": {
+    "perm": {
+      "meaning": "isotropic hydraulic permeability k0 in the reference state",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "M": {
+      "meaning": "exponential strain-dependence coefficient M",
+      "unit": "[ ]",
+      "range": "M ≥ 0",
+      "required": false
+    },
+    "alpha": {
+      "meaning": "power-law exponent α",
+      "unit": "[ ]",
+      "range": "α ≥ 0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "perm-Holmes-Mow",
+      "perm": 0.001,
+      "M": 1.5,
+      "alpha": 2
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

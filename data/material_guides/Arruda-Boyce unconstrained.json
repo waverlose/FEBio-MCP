@@ -1,0 +1,48 @@
+{
+  "type": "Arruda-Boyce unconstrained",
+  "kind": "standalone",
+  "display_name": "Arruda-Boyce Unconstrained",
+  "summary": "isotropic 8-chain model. Reduces to neo-Hookean far from max extensibility.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.1 Arruda-Boyce Unconstrained, p202（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained)",
+  "params": {
+    "ksi": {
+      "meaning": "Initial fiber modulus ξ",
+      "unit": "[P]",
+      "required": false
+    },
+    "N": {
+      "meaning": "Number of chain segments N",
+      "unit": "[ ]",
+      "required": false
+    },
+    "n_term": {
+      "meaning": "Number of terms in the Taylor series expansion nterm",
+      "unit": "[ ]",
+      "range": "3 ≤ nterm ≤ 30",
+      "required": false
+    },
+    "kappa": {
+      "meaning": "Bulk modulus κ of ground matrix",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "Arruda-Boyce unconstrained",
+      "density": 1e-06,
+      "ksi": 10,
+      "N": 5,
+      "n_term": 3,
+      "kappa": 1,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "type": "TC nonlinear orthotropic",
+  "kind": "standalone",
+  "display_name": "Tension-Compression Nonlinear Orthotropic",
+  "summary": "ξi ≥ 0. Uses three-field element formulation. Material axes via `mat_axis`.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.13 Tension-Compression Nonlinear Orthotropic, p189（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled, orthotropic)",
+  "params": {
+    "c1": {
+      "meaning": "First Mooney-Rivlin material parameter",
+      "unit": "[P]",
+      "required": false
+    },
+    "c2": {
+      "meaning": "Second Mooney-Rivlin material parameter",
+      "unit": "[P]",
+      "required": false
+    },
+    "beta": {
+      "meaning": "the β parameter (β1, β2, β3)",
+      "unit": "[ ]",
+      "required": false
+    },
+    "ksi": {
+      "meaning": "the ξ parameter (ξ1, ξ2, ξ3)",
+      "unit": "[P]",
+      "required": false
+    },
+    "mat_axis": {
+      "meaning": "defines the material axes",
+      "required": false
+    },
+    "k": {
+      "meaning": "bulk modulus (base uncoupled param)",
+      "unit": "[P]",
+      "manual_default": "0",
+      "required": false
+    }
+  },
+  "example": {
+    "buildable": false,
+    "reason": "ValueError: 材料 'vector' 不支持参数 'a'。可用参数: ['text']",
+    "source": "pyfebio 默认值不足以构造出该材料，需人工补全必要参数后给出示例。",
+    "verified": false
+  }
+}

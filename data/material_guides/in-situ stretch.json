@@ -1,0 +1,29 @@
+{
+  "type": "in-situ stretch",
+  "kind": "nested",
+  "display_name": "in-situ stretch (generator)",
+  "summary": "requires the elastic material to define a fiber property. isochoric=1 ⇒ F̂p,iso (µ = λ^(−1/2)); otherwise F̂p,uni (µ = 1).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.21.2.2 in-situ stretch, p404（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "prestrain generator",
+  "params": {
+    "stretch": {
+      "meaning": "initial fiber stretch",
+      "manual_default": "1.0",
+      "required": false
+    },
+    "isochoric": {
+      "meaning": "use the isochoric prestrain generator option",
+      "manual_default": "1",
+      "required": false
+    }
+  },
+  "example": {
+    "buildable": false,
+    "reason": "读取默认值失败：ValidationError: 1 validation error for PrestrainInSituStretch\nstretch\n  Field required [type=missing, input_value={}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+    "source": "pyfebio 默认值不足以构造出该材料，需人工补全必要参数后给出示例。",
+    "verified": false
+  }
+}

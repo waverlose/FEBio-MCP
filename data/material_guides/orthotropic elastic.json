@@ -1,0 +1,77 @@
+{
+  "type": "orthotropic elastic",
+  "kind": "standalone",
+  "display_name": "Orthotropic Elastic",
+  "summary": "material axes via `mat_axis` (§4.1.1.2).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.16 Orthotropic Elastic, p220（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained, orthotropic)",
+  "params": {
+    "E1": {
+      "meaning": "Young's modulus in the x-direction",
+      "unit": "[P]",
+      "required": false
+    },
+    "E2": {
+      "meaning": "Young's modulus in the y-direction",
+      "unit": "[P]",
+      "required": false
+    },
+    "E3": {
+      "meaning": "Young's modulus in the z-direction",
+      "unit": "[P]",
+      "required": false
+    },
+    "G12": {
+      "meaning": "Shear modulus in the xy-plane",
+      "unit": "[P]",
+      "required": false
+    },
+    "G23": {
+      "meaning": "Shear modulus in the yz-plane",
+      "unit": "[P]",
+      "required": false
+    },
+    "G31": {
+      "meaning": "Shear modulus in the xz-plane",
+      "unit": "[P]",
+      "required": false
+    },
+    "v12": {
+      "meaning": "Poisson's ratio between x- and y-direction",
+      "unit": "[ ]",
+      "required": false
+    },
+    "v23": {
+      "meaning": "Poisson's ratio between y- and z-direction",
+      "unit": "[ ]",
+      "required": false
+    },
+    "v31": {
+      "meaning": "Poisson's ratio between z- and x-direction",
+      "unit": "[ ]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "orthotropic elastic",
+      "density": 1e-06,
+      "E1": 13.4,
+      "E2": 14.1,
+      "E3": 22.9,
+      "v12": 0.42,
+      "v23": 0.23,
+      "v31": 0.38,
+      "G12": 4.6,
+      "G23": 6.2,
+      "G31": 5.8,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

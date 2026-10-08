@@ -1,0 +1,85 @@
+{
+  "type": "muscle material",
+  "kind": "standalone",
+  "display_name": "Muscle Material",
+  "summary": "Blemker model; Criscione invariants. Activation α can be given via `activation` element with optional `lc` attribute (loadcurve); `activation` acts as scale factor if a loadcurve is defined, else constant activation level. Fiber direction specified like trans-iso Mooney-Rivlin.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.10 Muscle Material, p185（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled, transversely isotropic) / active",
+  "params": {
+    "g1": {
+      "meaning": "along fiber shear modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "g2": {
+      "meaning": "cross fiber shear modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "p1": {
+      "meaning": "exponential stress coefficients",
+      "unit": "[ ]",
+      "required": false
+    },
+    "p2": {
+      "meaning": "fiber uncrimping factor",
+      "unit": "[ ]",
+      "required": false
+    },
+    "Lofl": {
+      "meaning": "optimal fiber length",
+      "unit": "[ ]",
+      "required": false
+    },
+    "smax": {
+      "meaning": "maximum isometric stress",
+      "unit": "[P]",
+      "required": false
+    },
+    "lambda": {
+      "meaning": "fiber stretch for straightened fibers",
+      "unit": "[ ]",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    },
+    "activation": {
+      "meaning": "activation level",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    },
+    "k": {
+      "meaning": "bulk modulus (base uncoupled param)",
+      "unit": "[P]",
+      "manual_default": "0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "muscle material",
+      "density": 1e-06,
+      "g1": 500,
+      "g2": 500,
+      "p1": 0.5,
+      "p2": 6.6,
+      "smax": 300000,
+      "Lofl": 1.07,
+      "lam_max": 1.4,
+      "k": 1000000,
+      "fiber": {
+        "type": "vector",
+        "text": "1.0,0.0,0.0"
+      },
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  },
+  "params_not_in_pyfebio": [
+    "lambda",
+    "activation"
+  ]
+}

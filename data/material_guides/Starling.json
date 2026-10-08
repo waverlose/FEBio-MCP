@@ -1,0 +1,32 @@
+{
+  "type": "Starling",
+  "kind": "nested",
+  "display_name": "Starling Equation",
+  "summary": "φ̂w = kp(pv − p).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.14.3.1 Starling Equation, p341（4.13）"
+  ],
+  "module": "biphasic",
+  "category": "fluid supply",
+  "params": {
+    "kp": {
+      "meaning": "hydraulic filtration coefficient, kp",
+      "unit": "[L²/F·t]",
+      "required": false
+    },
+    "pv": {
+      "meaning": "fluid pressure in external source, pv",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "Starling",
+      "kp": 0.001,
+      "pv": 0.1
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

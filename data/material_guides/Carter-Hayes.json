@@ -1,0 +1,52 @@
+{
+  "type": "Carter-Hayes",
+  "kind": "standalone",
+  "display_name": "Carter-Hayes",
+  "summary": "**may only be used as the solid (or a component of the solid) in a multiphasic mixture (§4.16).** The solid-bound molecule must be defined in `<Globals>` §3.4.3 and included in the multiphasic mixture via a `<solid_bound>` tag; `sbm` refers to the global index. ρσ_r is given in `<solid_bound>`; optional bounds `<rhomin>`, `<rhomax>`.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.2 Carter-Hayes, p203（4.13）"
+  ],
+  "module": "multiphasic (must be the solid or a component of the solid in a multiphasic mixture §4.16)",
+  "category": "elastic solid (unconstrained) / multiphasic solid",
+  "params": {
+    "E0": {
+      "meaning": "Young's modulus at reference density E0",
+      "unit": "[P]",
+      "required": false
+    },
+    "rho0": {
+      "meaning": "reference density ρ0",
+      "unit": "[M/L³]",
+      "required": false
+    },
+    "gamma": {
+      "meaning": "exponent of solid-bound molecule density for calculation of Young's modulus γ",
+      "unit": "[ ]",
+      "required": false
+    },
+    "v": {
+      "meaning": "Poisson's ratio ν",
+      "unit": "[ ]",
+      "required": false
+    },
+    "sbm": {
+      "meaning": "index of solid bound molecule",
+      "unit": "[ ]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "Carter-Hayes",
+      "density": 1e-06,
+      "E0": 10000,
+      "rho0": 1,
+      "gamma": 2,
+      "v": 0.3,
+      "sbm": 1,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

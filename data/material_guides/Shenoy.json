@@ -1,0 +1,64 @@
+{
+  "type": "Shenoy",
+  "kind": "nested",
+  "display_name": "Shenoy-Wang material",
+  "summary": "Wang et al., Biophysical Journal 107 (2014) 2592–2603. λ1 = λc − λt/2, λ2 = λc + λt/2. Example uses `type=\"Shenoy\"` (section title says \"Shenoy-Wang material\").",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.33 Shenoy-Wang material, p241（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained) / fiber",
+  "params": {
+    "mu": {
+      "meaning": "matrix shear modulus µ",
+      "unit": "[P]",
+      "required": false
+    },
+    "k": {
+      "meaning": "matrix bulk modulus k",
+      "unit": "[P]",
+      "required": false
+    },
+    "Ef": {
+      "meaning": "Fiber stiffness modulus Ef",
+      "unit": "[P]",
+      "required": false
+    },
+    "lam_c": {
+      "meaning": "transition point λc",
+      "unit": "[ ]",
+      "required": false
+    },
+    "lam_t": {
+      "meaning": "transition interval size λt",
+      "unit": "[ ]",
+      "required": false
+    },
+    "n": {
+      "meaning": "strain hardening exponent n",
+      "unit": "[ ]",
+      "required": false
+    },
+    "m": {
+      "meaning": "strain hardening exponent m",
+      "unit": "[ ]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "Shenoy",
+      "density": 1e-06,
+      "mu": 0.7692,
+      "k": 1.667,
+      "Ef": 134.6,
+      "lam_c": 1.02,
+      "lam_t": 0.255,
+      "n": 5,
+      "m": 30,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

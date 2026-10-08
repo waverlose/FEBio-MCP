@@ -1,0 +1,34 @@
+{
+  "type": "diff-const-iso",
+  "kind": "nested",
+  "display_name": "Constant Isotropic Diffusivity",
+  "summary": "d = d I; valid only for small strains.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.15.3.1 Constant Isotropic Diffusivity, p347（4.13）"
+  ],
+  "module": "solute",
+  "category": "diffusivity",
+  "params": {
+    "free_diff": {
+      "meaning": "free diffusivity d0 of solute (diffusivity in solution)",
+      "unit": "[L²/t]",
+      "required": false
+    },
+    "diff": {
+      "meaning": "constant isotropic diffusivity d of solute in biphasic-solute mixture",
+      "unit": "[L²/t]",
+      "range": "d ≤ d0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "diff-const-iso",
+      "free_diff": 1,
+      "diff": 0.001,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

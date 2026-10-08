@@ -1,0 +1,41 @@
+{
+  "type": "fiber-exp-pow-uncoupled",
+  "kind": "nested",
+  "display_name": "Fiber with Exponential-Power Law, Uncoupled Formulation",
+  "summary": "**not stable on its own** — combine with a stable uncoupled ground matrix via `uncoupled solid mixture` (§4.1.2.16). Oriented along e1 by default.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.2.2.1 Fiber with Exponential-Power Law, Uncoupled Formulation, p255（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber (uncoupled)",
+  "params": {
+    "ksi": {
+      "meaning": "ξ, a measure of the fiber modulus",
+      "unit": "[P]",
+      "range": "ξ > 0",
+      "required": false
+    },
+    "alpha": {
+      "meaning": "α, coefficient of exponential argument",
+      "unit": "[ ]",
+      "range": "α ≥ 0",
+      "required": false
+    },
+    "beta": {
+      "meaning": "β, power of exponential argument",
+      "unit": "[ ]",
+      "range": "β ≥ 2",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "fiber-exp-pow-uncoupled",
+      "ksi": 5,
+      "alpha": 20,
+      "beta": 3
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

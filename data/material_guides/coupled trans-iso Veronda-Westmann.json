@@ -1,0 +1,54 @@
+{
+  "type": "coupled trans-iso Veronda-Westmann",
+  "kind": "standalone",
+  "display_name": "Coupled Transversely Isotropic Veronda-Westmann",
+  "summary": "FEBio 材料类型 coupled trans-iso Veronda-Westmann。",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.31 Coupled Transversely Isotropic Veronda-Westmann, p238（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained, transversely isotropic)",
+  "params": {
+    "c1": {
+      "meaning": "Veronda-Westmann c1 parameter",
+      "unit": "[P]",
+      "required": false
+    },
+    "c2": {
+      "meaning": "Veronda-Westmann c2 parameter",
+      "unit": "[ ]",
+      "required": false
+    },
+    "c3": {
+      "meaning": "exponential multiplier",
+      "unit": "[P]",
+      "required": false
+    },
+    "c4": {
+      "meaning": "fiber scale factor",
+      "unit": "[ ]",
+      "required": false
+    },
+    "c5": {
+      "meaning": "fiber modulus in linear region",
+      "unit": "[P]",
+      "required": false
+    },
+    "lam_max": {
+      "meaning": "maximum fiber straightening stretch",
+      "unit": "[ ]",
+      "required": false
+    },
+    "k": {
+      "meaning": "bulk-like modulus",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "buildable": false,
+    "reason": "ValidationError: 1 validation error for TransIsoVerondaWestmann",
+    "source": "pyfebio 默认值不足以构造出该材料，需人工补全必要参数后给出示例。",
+    "verified": false
+  }
+}

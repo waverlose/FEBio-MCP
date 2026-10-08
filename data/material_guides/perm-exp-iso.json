@@ -1,0 +1,33 @@
+{
+  "type": "perm-exp-iso",
+  "kind": "nested",
+  "display_name": "Exponential Isotropic Permeability",
+  "summary": "k(J) = k0 exp(M (J−1)/(J−φ0)). Pore closure (J→φ0) ⇒ k→0.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.14.2.2 Exponential Isotropic Permeability, p333（4.13）"
+  ],
+  "module": "biphasic",
+  "category": "permeability",
+  "params": {
+    "perm": {
+      "meaning": "isotropic hydraulic permeability k0 in the reference state",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "M": {
+      "meaning": "exponential strain-dependence coefficient M",
+      "unit": "[ ]",
+      "range": "M ≥ 0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "perm-exp-iso",
+      "perm": 0.001,
+      "M": 1.5
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

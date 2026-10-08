@@ -1,0 +1,27 @@
+{
+  "type": "ellipsoidal",
+  "kind": "nested",
+  "display_name": "Ellipsoidal",
+  "summary": "generally orthotropic 3D distribution. C auto-adjusted; only relative ratios of (a,b,c) matter.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.3.4.2 Ellipsoidal, p268（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber distribution function",
+  "params": {
+    "spa": {
+      "meaning": "The semi-principal axes (a, b, c) of the ellipsoid",
+      "unit": "[ ]",
+      "range": "positive",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "ellipsoidal",
+      "spa": "1.0,1.0,1.0"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

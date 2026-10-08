@@ -1,0 +1,46 @@
+{
+  "type": "EFD neo-Hookean",
+  "kind": "nested",
+  "display_name": "Ellipsoidal Fiber Distribution Neo-Hookean",
+  "summary": "σ = σNH + σf (Neo-Hookean basis §4.1.4.20 + fibers §4.1.4.7).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.8 Ellipsoidal Fiber Distribution Neo-Hookean, p212（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained) / fiber distribution",
+  "params": {
+    "E": {
+      "meaning": "Young's modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "v": {
+      "meaning": "Poisson's ratio",
+      "unit": "[ ]",
+      "required": false
+    },
+    "beta": {
+      "meaning": "parameters (β1, β2, β3)",
+      "unit": "[ ]",
+      "required": false
+    },
+    "ksi": {
+      "meaning": "parameters (ξ1, ξ2, ξ3)",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "EFD neo-Hookean",
+      "density": 1e-06,
+      "E": 1,
+      "v": 0.3,
+      "beta": "2.5,3.0,3.0",
+      "ksi": "1.0,1.0,1.0",
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

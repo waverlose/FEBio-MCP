@@ -1,0 +1,44 @@
+{
+  "type": "rigid body",
+  "kind": "standalone",
+  "display_name": "Rigid Body",
+  "summary": "if `center_of_mass` omitted, FEBio computes it (then `density` required). If `center_of_mass` defined, `density` may be omitted. Omitting both ⇒ error. `E` and `v` have no effect except for material stiffness in some auto-penalty contact formulations — enter sensible values if using contact. Rigid body DOFs are initially **unconstrained** (different from older FEBio versions); constrain via the Constraints section (§3.12.1).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.18 Rigid Body, p378（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "rigid",
+  "params": {
+    "density": {
+      "meaning": "Density of rigid body",
+      "unit": "[M/L³]",
+      "required": false
+    },
+    "center_of_mass": {
+      "meaning": "Position of the center of mass",
+      "unit": "[L]",
+      "required": true
+    },
+    "E": {
+      "meaning": "Young's modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "v": {
+      "meaning": "Poisson's ratio",
+      "unit": "[ ]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "rigid body",
+      "density": 1e-06,
+      "E": 1,
+      "v": 0.3,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

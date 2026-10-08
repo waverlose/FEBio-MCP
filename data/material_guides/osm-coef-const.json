@@ -1,0 +1,26 @@
+{
+  "type": "osm-coef-const",
+  "kind": "nested",
+  "display_name": "Constant Osmotic Coefficient",
+  "summary": "FEBio 材料类型 osm-coef-const。",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.15.5.1 Constant Osmotic Coefficient, p354（4.13）"
+  ],
+  "module": "solute / multiphasic",
+  "category": "osmotic coefficient",
+  "params": {
+    "osmcoef": {
+      "meaning": "Osmotic coefficient Φ",
+      "unit": "[ ]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "osm-coef-const",
+      "osmcoef": 1
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "type": "perm-ref-iso",
+  "kind": "nested",
+  "display_name": "Referentially Isotropic Permeability",
+  "summary": "strain-induced anisotropy. Reference-state permeability k = (k0r+k1r+k2r) I.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.14.2.4 Referentially Isotropic Permeability, p335（4.13）"
+  ],
+  "module": "biphasic",
+  "category": "permeability",
+  "params": {
+    "perm0": {
+      "meaning": "hydraulic permeability k0r",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "perm1": {
+      "meaning": "hydraulic permeability k1r",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "perm2": {
+      "meaning": "hydraulic permeability k2r",
+      "unit": "[L⁴/F·t]",
+      "required": false
+    },
+    "M": {
+      "meaning": "exponential strain-dependence coefficient M",
+      "unit": "[ ]",
+      "range": "M ≥ 0",
+      "required": false
+    },
+    "alpha": {
+      "meaning": "power-law exponent α",
+      "unit": "[ ]",
+      "range": "α ≥ 0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "perm-ref-iso",
+      "perm0": 0.001,
+      "perm1": 0.005,
+      "perm2": 0.002,
+      "M": 1.5,
+      "alpha": 2
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

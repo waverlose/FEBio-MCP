@@ -1,0 +1,82 @@
+{
+  "type": "Mooney-Rivlin von Mises Fibers",
+  "kind": "nested",
+  "display_name": "Mooney-Rivlin Von Mises Distributed Fibers",
+  "summary": "authors Gouget & Girard. `gipt` must be a multiple of 10; recommend ≥ 20. `kf` and `tp` may alternatively be given per element in `<ElementData>` with tag `MRVonMisesParameters`. `mat_axis` may be in Material or ElementData section. First `mat_axis` vector `a` is the reference direction for `tp`.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.18 Mooney-Rivlin Von Mises Distributed Fibers (Sclera and other thin soft tissues), p195（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled) / fiber distribution",
+  "params": {
+    "c1": {
+      "meaning": "Mooney-Rivlin coefficient 1",
+      "unit": "[P]",
+      "required": false
+    },
+    "c2": {
+      "meaning": "Mooney-Rivlin coefficient 2",
+      "unit": "[P]",
+      "required": false
+    },
+    "c3": {
+      "meaning": "Exponential stress coefficient",
+      "unit": "[P]",
+      "required": false
+    },
+    "c4": {
+      "meaning": "Fiber uncrimping coefficient",
+      "unit": "[ ]",
+      "required": false
+    },
+    "c5": {
+      "meaning": "Modulus of straightened fibers",
+      "unit": "[P]",
+      "required": false
+    },
+    "lam_max": {
+      "meaning": "Fiber stretch for straightened fibers",
+      "unit": "[ ]",
+      "required": false
+    },
+    "tp": {
+      "meaning": "Preferred fiber orientation (angle within fiber plane, w.r.t. first direction in `mat_axis`)",
+      "unit": "[rad]",
+      "required": false
+    },
+    "kf": {
+      "meaning": "Fiber concentration factor",
+      "unit": "[ ]",
+      "required": false
+    },
+    "vmc": {
+      "meaning": "Choice of von Mises distribution (1 = semi-circular von Mises; 2 = constrained von Mises mixture)",
+      "range": "1/2",
+      "required": false
+    },
+    "var_n": {
+      "meaning": "Exponent (only for vmc=2)",
+      "required": false
+    },
+    "gipt": {
+      "meaning": "Number of integration points (multiple of 10)",
+      "required": false
+    },
+    "mat_axis": {
+      "meaning": "Reference frame of the plane of the fibers",
+      "required": false
+    },
+    "k": {
+      "meaning": "bulk modulus (base uncoupled param)",
+      "unit": "[P]",
+      "manual_default": "0",
+      "required": false
+    }
+  },
+  "example": {
+    "buildable": false,
+    "reason": "ValidationError: 1 validation error for FiberLocal",
+    "source": "pyfebio 默认值不足以构造出该材料，需人工补全必要参数后给出示例。",
+    "verified": false
+  }
+}

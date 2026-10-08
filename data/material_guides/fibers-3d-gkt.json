@@ -1,0 +1,34 @@
+{
+  "type": "fibers-3d-gkt",
+  "kind": "nested",
+  "display_name": "Gauss-Kronrod Trapezoidal Rule",
+  "summary": "for unconstrained **and** uncoupled CFD. Total points N = nph × nth. Recommended nph=7, nth=31. Automatically limits integration to tensioned fibers.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.3.5.1 Gauss-Kronrod Trapezoidal Rule, p275（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "integration scheme (3D only)",
+  "params": {
+    "nph": {
+      "meaning": "Number of integration points across latitudes",
+      "unit": "[ ]",
+      "range": "one of 7, 11, 15, 19, 23, 27",
+      "required": false
+    },
+    "nth": {
+      "meaning": "Number of integration points across longitudes",
+      "unit": "[ ]",
+      "range": "any > 0 (odd preferred)",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "fibers-3d-gkt",
+      "nph": 7,
+      "nth": 31
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

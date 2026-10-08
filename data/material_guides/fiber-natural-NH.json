@@ -1,0 +1,35 @@
+{
+  "type": "fiber-natural-NH",
+  "kind": "nested",
+  "display_name": "Fiber with Natural Neo-Hookean Law",
+  "summary": "stress varies linearly with natural (Hencky) strain.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.2.1.3 Fiber with Natural Neo-Hookean Law, p247（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "fiber (unconstrained)",
+  "params": {
+    "ksi": {
+      "meaning": "ξ, fiber modulus",
+      "unit": "[P]",
+      "range": "ξ > 0",
+      "required": false
+    },
+    "lam0": {
+      "meaning": "λ0, stretch threshold for tensile response",
+      "unit": "[ ]",
+      "range": "λ0 ≥ 1",
+      "manual_default": "1",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "fiber-natural-NH",
+      "ksi": 1,
+      "lam0": 1
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

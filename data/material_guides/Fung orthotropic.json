@@ -1,0 +1,89 @@
+{
+  "type": "Fung orthotropic",
+  "kind": "standalone",
+  "display_name": "Fung Orthotropic",
+  "summary": "orthotropic Lamé parameters must give a positive definite stiffness matrix. Example also includes `<k>120000</k>`.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.5 Fung Orthotropic, p180（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled, orthotropic)",
+  "params": {
+    "E1": {
+      "meaning": "E1 Young's modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "E2": {
+      "meaning": "E2 Young's modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "E3": {
+      "meaning": "E3 Young's modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "G12": {
+      "meaning": "G12 shear modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "G23": {
+      "meaning": "G23 shear modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "G31": {
+      "meaning": "G31 shear modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "v12": {
+      "meaning": "ν12 Poisson's ratio",
+      "unit": "[ ]",
+      "required": false
+    },
+    "v23": {
+      "meaning": "ν23 Poisson's ratio",
+      "unit": "[ ]",
+      "required": false
+    },
+    "v31": {
+      "meaning": "ν31 Poisson's ratio",
+      "unit": "[ ]",
+      "required": false
+    },
+    "c": {
+      "meaning": "c coefficient",
+      "unit": "[P]",
+      "required": false
+    },
+    "k": {
+      "meaning": "bulk modulus (appears in example)",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "Fung orthotropic",
+      "density": 1e-06,
+      "E1": 124,
+      "E2": 124,
+      "E3": 36,
+      "G12": 67,
+      "G23": 40,
+      "G31": 40,
+      "v12": 0.075,
+      "v23": 0.87,
+      "v31": 0.26,
+      "c": 1,
+      "k": 120000,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

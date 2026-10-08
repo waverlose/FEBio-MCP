@@ -1,0 +1,69 @@
+{
+  "type": "coupled trans-iso Mooney-Rivlin",
+  "kind": "standalone",
+  "display_name": "Coupled Transversely Isotropic Mooney-Rivlin",
+  "summary": "FEBio 材料类型 coupled trans-iso Mooney-Rivlin。",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.30 Coupled Transversely Isotropic Mooney-Rivlin, p237（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained, transversely isotropic)",
+  "params": {
+    "c1": {
+      "meaning": "Mooney-Rivlin c1 parameter",
+      "unit": "[P]",
+      "required": false
+    },
+    "c2": {
+      "meaning": "Mooney-Rivlin c2 parameter",
+      "unit": "[P]",
+      "required": false
+    },
+    "c3": {
+      "meaning": "exponential multiplier",
+      "unit": "[P]",
+      "required": false
+    },
+    "c4": {
+      "meaning": "fiber scale factor",
+      "unit": "[ ]",
+      "required": false
+    },
+    "c5": {
+      "meaning": "fiber modulus in linear region",
+      "unit": "[P]",
+      "required": false
+    },
+    "lam_max": {
+      "meaning": "maximum fiber straightening stretch",
+      "unit": "[ ]",
+      "required": false
+    },
+    "k": {
+      "meaning": "bulk-like modulus",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "coupled trans-iso Mooney-Rivlin",
+      "density": 1e-06,
+      "c1": 1,
+      "c2": 0.1,
+      "c3": 0,
+      "c4": 43,
+      "c5": 3,
+      "lam_max": 1.05,
+      "k": 10,
+      "fiber": {
+        "type": "vector",
+        "text": "1.0,0.0,0.0"
+      },
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": true,
+    "verified_note": "已在 FEBio 4.13.0 实测：包进 1×1×1 六面体网格、单轴压缩 1% 的算例，terminate normal。该结果只证明此 spec 可被 FEBio 正常读入并收敛，不代表参数取值适用于任何具体工况。"
+  }
+}

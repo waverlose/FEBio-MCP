@@ -1,0 +1,67 @@
+{
+  "type": "tendon material",
+  "kind": "standalone",
+  "display_name": "Tendon Material",
+  "summary": "similar to muscle material; differs only in fiber function. Example: `<g1>5e4</g1><g2>5e4</g2><l1>2.7e6</l1><l2>46.4</l2><lambda>1.03</lambda><k>1e7</k>` (note: the manual example has a typo `2.7e6/l1>`).",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.2.12 Tendon Material, p188（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (uncoupled, transversely isotropic)",
+  "params": {
+    "g1": {
+      "meaning": "along fiber shear modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "g2": {
+      "meaning": "cross fiber shear modulus",
+      "unit": "[P]",
+      "required": false
+    },
+    "l1": {
+      "meaning": "exponential stress coefficients",
+      "unit": "[P]",
+      "required": false
+    },
+    "l2": {
+      "meaning": "fiber uncrimping factor",
+      "unit": "[ ]",
+      "required": false
+    },
+    "lambda": {
+      "meaning": "fiber stretch for straightened fibers",
+      "unit": "[ ]",
+      "required": false,
+      "note": "手册列出该参数，但 pyfebio 当前版本没有对应字段，建模时无法传入。"
+    },
+    "k": {
+      "meaning": "bulk modulus (base uncoupled param)",
+      "unit": "[P]",
+      "manual_default": "0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "tendon material",
+      "density": 1e-06,
+      "g1": 50000,
+      "g2": 50000,
+      "l1": 2700000,
+      "l2": 46.4,
+      "lam_max": 1.03,
+      "k": 10000000,
+      "fiber": {
+        "type": "vector",
+        "text": "1.0,0.0,0.0"
+      },
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  },
+  "params_not_in_pyfebio": [
+    "lambda"
+  ]
+}

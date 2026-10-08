@@ -1,0 +1,42 @@
+{
+  "type": "spherical fiber distribution",
+  "kind": "nested",
+  "display_name": "Spherical Fiber Distribution",
+  "summary": "**not stable on its own** — combine with a stable compressible ground matrix using `solid mixture` (§4.1.4.27). α→0 ⇒ power law ξ(In−1)^β. Use β > 2 for smooth stress transition from compression to tension.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.28 Spherical Fiber Distribution, p234（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained) / fiber distribution",
+  "params": {
+    "alpha": {
+      "meaning": "parameter α",
+      "unit": "[ ]",
+      "range": "α ≥ 0",
+      "required": false
+    },
+    "beta": {
+      "meaning": "parameter β",
+      "unit": "[ ]",
+      "range": "β ≥ 2",
+      "required": false
+    },
+    "ksi": {
+      "meaning": "parameters ξ",
+      "unit": "[P]",
+      "range": "ξ > 0",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "spherical fiber distribution",
+      "ksi": 10,
+      "alpha": 0,
+      "beta": 2.5,
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "type": "EFD Donnan equilibrium",
+  "kind": "nested",
+  "display_name": "Ellipsoidal Fiber Distribution with Donnan Equilibrium Swelling",
+  "summary": "σ = σDE + σf. Requires global R and T.",
+  "manual_ref": [
+    "FEBio 4.x User Manual §4.1.4.9 Ellipsoidal Fiber Distribution with Donnan Equilibrium Swelling, p213（4.13）"
+  ],
+  "module": "solid (inferred)",
+  "category": "elastic solid (unconstrained) / fiber distribution + swelling",
+  "params": {
+    "phiw0": {
+      "meaning": "gel porosity (fluid volume fraction) in reference (strain-free) configuration, φw_0",
+      "unit": "[ ]",
+      "required": false
+    },
+    "cF0": {
+      "meaning": "fixed-charge density in reference (strain-free) configuration, cF_0",
+      "unit": "[n/L³]",
+      "required": false
+    },
+    "bosm": {
+      "meaning": "external bath osmolarity, c̄*",
+      "unit": "[n/L³]",
+      "required": false
+    },
+    "beta": {
+      "meaning": "parameters (β1, β2, β3)",
+      "unit": "[ ]",
+      "required": false
+    },
+    "ksi": {
+      "meaning": "parameters (ξ1, ξ2, ξ3)",
+      "unit": "[P]",
+      "required": false
+    }
+  },
+  "example": {
+    "spec": {
+      "type": "EFD Donnan equilibrium",
+      "density": 1e-06,
+      "phiw0": 0.8,
+      "cF0": {
+        "lc": 1,
+        "text": 0.3
+      },
+      "bosm": 300,
+      "beta": "2.5,3.0,3.0",
+      "ksi": "1.0,1.0,1.0",
+      "name": "sample"
+    },
+    "source": "pyfebio 0.3.0 默认值，已通过构造验证；数值为占位默认，建模前请按实际工况替换。",
+    "verified": false
+  }
+}
